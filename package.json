@@ -1,0 +1,61 @@
+{
+    "name": "camp-pizza",
+    "version": "1.0.0",
+    "description": "Project was made during CodersCamp course.",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "watch": "webpack --watch",
+        "start": "webpack-dev-server --open",
+        "build": "webpack",
+        "clean": "rm dist/bundle.js",
+        "build-dev": "webpack -d --mode development",
+        "build-prod": "webpack -p --mode production"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sylwia-fluder/camp-pizza.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/sylwia-fluder/camp-pizza/issues"
+    },
+    "homepage": "https://github.com/sylwia-fluder/camp-pizza#readme",
+    "devDependencies": {
+        "@babel/core": "^7.6.0",
+        "@babel/preset-env": "^7.6.0",
+        "babel-loader": "^8.0.6",
+        "clean-webpack-plugin": "^3.0.0",
+        "css-loader": "^3.2.0",
+        "eslint": "^6.3.0",
+        "eslint-config-prettier": "^6.3.0",
+        "eslint-plugin-prettier": "^3.1.0",
+        "file-loader": "^4.2.0",
+        "html-webpack-plugin": "^3.2.0",
+        "html-webpack-template": "^6.2.0",
+        "lodash-webpack-plugin": "^0.11.5",
+        "node-sass": "^4.12.0",
+        "prettier": "^1.18.2",
+        "sass-loader": "^8.0.0",
+        "style-loader": "^1.0.0",
+        "webpack": "^4.39.3",
+        "webpack-cli": "^3.3.8",
+        "webpack-dev-server": "^3.8.0"
+    },
+    "dependencies": {
+        "@hapi/joi": "^15.1.1",
+        "babel-polyfill": "^6.26.0",
+        "bcrypt": "^3.0.6",
+        "express": "^4.17.1",
+        "fawn": "^2.1.5",
+        "joi-objectid": "^2.0.0",
+        "lodash": "^4.17.15",
+        "lodash.get": "^4.4.2",
+        "moment": "^2.24.0",
+        "mongodb": "^3.3.2",
+        "mongoose": "^5.7.0",
+        "nodemon": "^1.19.2"
+    }
+}
