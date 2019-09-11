@@ -12,7 +12,7 @@ CAMP-PIZZA CLIENT
 
 ## 3. [ESLint](https://eslint.org) ##
 - `npm run eslint`
-- `npm run fix-code` with use  use [prettier-eslint](https://github.com/prettier/prettier-eslint)
+- `npm run fix-code` with use [prettier-eslint](https://github.com/prettier/prettier-eslint)
 
 ## 4. Other ##
 - `npm run all` - start processes: stylelint and ESLint
