@@ -6,14 +6,411 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: $font-family-base;
 }
 
-html {
-  font-size: $font-size-base;
+nav {
+  width: 100%;
+  min-height: 5vh;
+  background-color: $main_color;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-/* example: use mixin for font-size on rem */
-p {
-  @include fontSize(32px);
+.box_nav {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.ico {
+  display: flex;
+  align-items: center;
+  color: $white-color;
+  margin-right: 1vh;
+}
+
+.p_logo {
+  width: 30%;
+  font-family: $logo-font;
+  color: $white-color;
+  font-size: 32px;
+  align-self: flex-start;
+  margin: .5vh 0 0 1vh;
+}
+
+.p_nav {
+  font-family: $main-font;
+  color: $white-color;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 200;
+  margin: .5vh;
+}
+
+.header-text {
+  font-family: $header-font;
+  color: $white-color;
+  font-size: 70px;
+  text-align: center;
+  padding: 8vh;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+}
+
+.box-search {
+  width: 40%;
+  display: flex;
+  margin: 2vh auto;
+  align-items: center;
+  justify-content: center;
+  filter: $box-shadow-filter;
+}
+
+form.box-search input[type='text'] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid $white-color;
+  width: 85%;
+  background: $white-color;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+form.box-search button {
+  width: 15%;
+  padding: 10px;
+  background: $main_color;
+  color: $white-color;
+  font-size: 16px;
+  border: 1px solid $main_color;
+  border-left: none;
+  cursor: pointer;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+form.box-search button:hover {
+  background: $main_color;
+}
+
+header {
+  background-image: $header-image;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.arrow {
+  color: $white-color;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+  margin: 8vh;
+}
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.box-info {
+  width: 90%;
+  height: 50vh;
+  margin-top: 5vh;
+  background-color: $main_color;
+}
+
+.text-section {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.right-box {
+  align-self: flex-end;
+  border-radius: 20px 0 0 20px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+  display: flex;
+}
+
+.left-box {
+  align-self: flex-start;
+  border-radius: 0 20px 20px 0;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+  display: flex;
+}
+
+.about-header {
+  font-size: 35px;
+  text-align: left;
+}
+
+.about-text {
+  font-size: 12px;
+  text-shadow: none;
+  text-align: left;
+  height: 50vh;
+}
+
+.img-food1 {
+  width: 70%;
+  height: 70%;
+  align-self: center;
+  margin-bottom: 4vh;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+  border-radius: 20px 0 0 20px;
+}
+
+.img-food2 {
+  width: 70%;
+  height: 70%;
+  align-self: center;
+  margin-bottom: 4vh;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+  border-radius: 0 20px 20px 0;
+}
+
+footer {
+  position: absolute;
+  bottom: -100;
+  margin-top: 10vh;
+  width: 100%;
+  height: 8vh;
+  background-color: $main_color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.p_foot {
+  margin: 2vh 0 0 1vh;
+  font-size: 30px;
+}
+
+.social {
+  width: 7%;
+  color: $white-color;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-menu {
+  margin-right: 1vh;
+  font-family: $main-font;
+  font-size: 14px;
+  color: $white-color;
+  list-style: none;
+}
+
+.adress-time {
+  width: 100%;
+  height: 3vh;
+  background-color: #FF8989;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8vh;
+}
+
+.menu-element {
+  margin: auto;
+  width: 70%;
+  height: 7vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid rgba(129, 129, 129, .4);
+}
+
+.menu-dish {
+  display: flex;
+  align-items: center;
+  margin-left: 1vh;
+  font-family: $main-font;
+  letter-spacing: 2px;
+}
+.menu-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  margin-right: 1.5vh;
+}
+
+.dish-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  margin-right: 1.5vh;
+}
+
+.menu-element-dishes {
+  margin: auto;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.mini-dish {
+  height: 5vh;
+  font-size: 12px;
+  letter-spacing: 1px;
+  border-bottom: 2px solid rgba(129, 129, 129, .4);
+  margin-top: 1vh;
+}
+
+.arrow-menu {
+  color: $main_color;
+  margin-right: 2vh;
+}
+
+.ingredients {
+  font-style: italic;
+  font-size: 12px;
+  margin-left: 2vh;
+  color: rgb(70, 70, 70);
+}
+
+.dish-basket {
+  color: $main_color;
+  margin-left: 1vh;
+}
+
+.price {
+  margin-left: 30vh;
+}
+
+.head {
+  font-family: $main-font;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-top: 2vh;
+}
+
+.price-summary {
+  margin-left: 1vh;
+  font-weight: bold;
+  color: $main_color;
+}
+
+.adress {
+  margin: 4vh 0 1vh;
+}
+
+.adress-form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+}
+
+form.adress-form input[type='text'] {
+  height: 3vh;
+  border: none;
+  border-bottom: 1px solid rgba(129, 129, 129, .4);
+  font-family: $main-font;
+  font-style: italic;
+  margin-top: 1vh;
+  letter-spacing: 1px;
+  font-weight: lighter;
+  font-size: 14px;
+  color: rgb(112, 112, 112);
+}
+
+form.adress-form input[type='password'] {
+  height: 3vh;
+  border: none;
+  border-bottom: 1px solid rgba(129, 129, 129, .4);
+  font-family: $main-font;
+  font-style: italic;
+  margin-top: 1vh;
+  letter-spacing: 1px;
+  font-weight: lighter;
+  font-size: 14px;
+  color: rgb(112, 112, 112);
+}
+
+.payment {
+  margin: 4vh 0 1vh;
+}
+
+.payment-options {
+  width: 25%;
+  margin: 2vh auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pay-btn {
+  width: 20%;
+  height: 3vh;
+  border-radius: 20px;
+  background-color: rgb(145, 0, 0);
+  font-family: $main-font;
+  color: $white-color;
+  font-size: 16px;
+  border: none;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+  margin: 2vh auto;
+}
+
+.login-head {
+  margin: 8vh 0 2vh;
+  height: 4vh;
+  border-bottom: 2px solid rgba(129, 129, 129, .4);
+}
+
+.login-btn {
+  width: 20%;
+  height: 3vh;
+  border-radius: 20px;
+  background-color: $main_color;
+  font-family: $main-font;
+  color: $white-color;
+  font-size: 16px;
+  border: none;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+  margin: 2vh auto;
+}
+
+.reg-quest {
+  font-family: $main-font;
+  color: rgba(145, 0, 0, .63);
+  font-size: 10px;
+  text-align: center;
+  margin-top: .5vh;
+}
+
+.user-ico {
+  margin-right: 1vh;
+  color: $main_color;
+}
+
+.user-ico-s {
+  margin-right: 1vh;
+  color: #000;
+}
+
+.usr-pg {
+  margin-top: 5vh;
+}
+
+.save-btn {
+  margin: 3vh auto;
+}
+
+.logout-btn {
+  background-color: rgb(145, 0, 0);
+  margin: 6vh auto;
+  width: 30%;
+}
+
+.inactive {
+  display: none;
+}
+
+.active {
+  display: unset;
 }
