@@ -10,7 +10,7 @@ const Meal = mongoose.model('Meal',new mongoose.Schema({
         maxlength: 30
     },
     type: {
-        type: String,
+        type: typeSchema,
         required: true
     },
     price: {
@@ -43,7 +43,7 @@ const Meal = mongoose.model('Meal',new mongoose.Schema({
 function validateMeal(meal){
     const schema = {
         name: Joi.string().min(3).max(30).required(),
-        type: Joi.string().min(3).max(30),
+        typeId: Joi.string().required(),
         price: Joi.required(),
         size: Joi.number(),
         ingredients: Joi.array(),
