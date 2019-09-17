@@ -11,8 +11,8 @@
         "clean": "rm dist/bundle.js",
         "build-dev": "webpack -d --mode development",
         "build-prod": "webpack -p --mode production",
-        "backend": "nodemon app.js",
-        "frontend": "npm run start --prefix frontend",
+        "backend": "nodemon start.js",
+        "frontend": "npm run start --prefix ../client",
         "dev": "concurrently \"npm run backend\" \"npm run frontend\""
     },
     "repository": {
