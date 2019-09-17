@@ -1,19 +1,16 @@
 {
-    "name": "camp-pizza",
+    "name": "camp-pizza-client",
     "version": "1.0.0",
     "description": "Project was made during CodersCamp course.",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "watch": "webpack --watch",
         "start": "webpack-dev-server --open",
-        "build": "webpack",
-        "clean": "rm dist/bundle.js",
-        "build-dev": "webpack -d --mode development",
-        "build-prod": "webpack -p --mode production",
-        "backend": "nodemon app.js",
-        "frontend": "npm run start --prefix frontend",
-        "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+        "start:api": "API_URL=$API_URL webpack-dev-server --open",
+        "stylelint": "stylelint '**/*.scss'",
+        "eslint": "./node_modules/.bin/eslint . --ext .js",
+        "fix-styles": "prettier-stylelint --write 'src/**/*.{css,scss}'",
+        "fix-code": "prettier-eslint --write 'src/**/*.{js,jsx}'",
+        "all": "npm-run-all -l stylelint eslint fix-styles fix-code"
     },
     "repository": {
         "type": "git",
@@ -22,36 +19,38 @@
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/sylwia-fluder/camp-pizza/issues"
+    "prettier": {},
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run all"
+        }
     },
-    "homepage": "https://github.com/sylwia-fluder/camp-pizza#readme",
     "devDependencies": {
-        "@babel/core": "^7.6.0",
-        "@babel/preset-env": "^7.6.0",
+        "@babel/core": "^7.5.5",
+        "@babel/preset-env": "^7.5.5",
         "babel-loader": "^8.0.6",
         "clean-webpack-plugin": "^3.0.0",
-        "concurrently": "^4.1.2",
         "css-loader": "^3.2.0",
-        "eslint": "^6.4.0",
-        "eslint-config-prettier": "^6.3.0",
-        "eslint-plugin-prettier": "^3.1.0",
+        "eslint": "^6.2.2",
         "file-loader": "^4.2.0",
         "html-webpack-plugin": "^3.2.0",
         "html-webpack-template": "^6.2.0",
+        "husky": "^3.0.5",
         "lodash-webpack-plugin": "^0.11.5",
         "node-sass": "^4.12.0",
-        "prettier": "^1.18.2",
-        "sass-loader": "^8.0.0",
+        "npm-run-all": "^4.1.5",
+        "prettier-eslint": "^9.0.0",
+        "prettier-eslint-cli": "^5.0.0",
+        "prettier-stylelint": "^0.4.2",
+        "sass-loader": "^7.3.1",
         "style-loader": "^1.0.0",
-        "webpack": "^4.40.2",
-        "webpack-cli": "^3.3.8",
+        "stylelint": "^10.1.0",
+        "stylelint-scss": "^3.10.1",
+        "webpack": "^4.39.2",
+        "webpack-cli": "^3.3.7",
         "webpack-dev-server": "^3.8.0"
     },
     "dependencies": {
-        "babel-polyfill": "^6.26.0",
-        "lodash": "^4.17.15",
-        "lodash.get": "^4.4.2",
-        "moment": "^2.24.0"
+        "babel-polyfill": "^6.26.0"
     }
 }

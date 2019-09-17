@@ -1,0 +1,3 @@
+@mixin fontSize($size) {
+  font-size: calculatePxToRem($size);
+}

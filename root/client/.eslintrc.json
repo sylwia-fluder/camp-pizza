@@ -1,26 +1,23 @@
 {
-  "rules": {
-    "prettier/prettier": 2,
-    "linebreak-style": 0,
-    "indent": ["error", 2],
-    "no-console": 1,
-    "quotes": ["error", "single"],
-    "semi": ["error", "always"]
-  },
   "env": {
     "es6": true,
-    "browser": true
+    "browser": true,
+    "node": true
   },
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
   "extends": [
-    "eslint:recommended",
-    "plugin:prettier/recommended"
+    "eslint:recommended"
   ],
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
+  "rules": {
+    "object-curly-spacing": ["error", "always"],
+    "linebreak-style": ["error", "unix"],
+    "indent": ["error", "tab"],
+    "no-console": "error",
+    "no-template-curly-in-string": "error",
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"]
   }
 }
