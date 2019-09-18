@@ -7,6 +7,8 @@ import * as View from '../view/';
 const submitFormLogin = event => {
 	event.preventDefault();
 
+	View.loginError.innerText = '';
+
 	const usernameValue = View.getLoginUsername();
 	const passwordValue = View.getLoginPassword();
 
@@ -20,6 +22,7 @@ const submitFormLogin = event => {
 		})
 		.catch(() => {
 			View.hideLoading();
+			View.loginError.innerText = 'Something went wrong...';
 		});
 };
 
@@ -43,7 +46,6 @@ const loginFetch = (username, password) => {
 			return response;
 		})
 		.catch(error => {
-			alert(error);
 			throw error;
 		});
 };

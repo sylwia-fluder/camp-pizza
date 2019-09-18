@@ -1,11 +1,13 @@
 import { ROUTES_API, HEADERS } from '../constants/';
 import { setToken } from '../storage/';
 import { goToHomepage } from '../routing/';
-import * as View from '../view/';
 import { validationRegisterForm } from './schemas/';
+import * as View from '../view/';
 
 const submitFormRegister = event => {
 	event.preventDefault();
+
+	View.registerError.innerText = '';
 
 	const usernameValue = View.getRegisterUsername();
 	const emailValue = View.getRegisterEmail();
@@ -22,6 +24,7 @@ const submitFormRegister = event => {
 		})
 		.catch(() => {
 			View.hideLoading();
+			View.registerError.innerText = 'Something went wrong...';
 		});
 };
 
@@ -46,7 +49,6 @@ const registerFetch = (username, email, password) => {
 			return response;
 		})
 		.catch(error => {
-			alert(error);
 			throw error;
 		});
 };
