@@ -1,7 +1,7 @@
 {
     "name": "camp-pizza-client",
     "version": "1.0.0",
-    "description": "Project was made during CodersCamp course.",
+    "description": "Project was made during CodersCamp course",
     "main": "index.js",
     "scripts": {
         "start": "webpack-dev-server --open",
