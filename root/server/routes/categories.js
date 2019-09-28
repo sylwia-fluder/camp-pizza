@@ -1,4 +1,4 @@
-const {Category, validate} = require('../model/category');
+const {Category, validate} = require('../models/category');
 const express = require('express');
 const router = express.Router();
 
@@ -58,5 +58,12 @@ router.get('/:id', async (req, res) => {
 
   res.send(category);
 });
+
+router.get('/browserName/:name', async (req, res) => {
+  const category = await Category.find({name: req.params.name});
+  if (!category) return res.status(404).send('The category with the given name was not found.');
+  res.send(category);
+});
+
 
 module.exports = router;
