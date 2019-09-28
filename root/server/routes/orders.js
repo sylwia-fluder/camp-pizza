@@ -2,18 +2,9 @@ const {Order, validate} = require('../models/order');
 const {Customer} = require('../models/customer');
 const {Product} = require('../models/product');
 const mongoose = require('mongoose');
-<<<<<<< HEAD
 const pick = require('lodash');
 const express = require('express');
 const router = express.Router();
-=======
-const Fawn = require('fawn');
-const pick = require('lodash');
-const express = require('express');
-const router = express.Router();
-
-Fawn.init(mongoose);
->>>>>>> 9ae1747d4b12c84b861d67d9847489ecde724f64
 
 router.get('/', async (req, res) => {
   res.send(await Order.find().sort('-dateOrder'));
@@ -55,17 +46,6 @@ router.get('/:id', async (req, res) => {
   res.send(order);
 });
 
-<<<<<<< HEAD
-=======
-router.get('/:id', async (req, res) => {
-  const order = await Order.findById(req.params.id);
-
-  if (!order) return res.status(404).send('The order with the given ID was not found.');
-
-  res.send(order);
-});
-
->>>>>>> 9ae1747d4b12c84b861d67d9847489ecde724f64
 router.put('/:id', async (req, res) => {
   let order = await Order.findByIdAndUpdate(
     req.params.id,
