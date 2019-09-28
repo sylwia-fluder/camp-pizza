@@ -13,10 +13,12 @@ client.connect(() => {
   client.close();
 });
 
-app.use(json());
-app.use('/api/products', products);
-app.use('/api/customers', customers);
-app.use('/api/orders', orders);
+app.use(express.json());
+app.use('/api/products',products);
+app.use('/api/categories',categories);
+app.use('/api/customers',customers);
+app.use('/api/addresses',addresses);
+app.use('/api/orders',orders);
 
 const port = process.env.port || 5000;
 app.listen(port, () => {

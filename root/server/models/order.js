@@ -48,6 +48,14 @@ const Order = mongoose.model(
       required: true,
       default: Date.now,
     },
+    status: {
+      type: String,
+      default: "is being prepered"
+    },
+    isEnded: {
+      type: Boolean,
+      default: false
+    },
     orderDeliveryDate: {
       type: Date,
     },
@@ -57,7 +65,11 @@ const Order = mongoose.model(
 function validateOrder(order) {
   const schema = {
     customerId: Joi.objectId().required(),
-    movieId: Joi.objectId().required(),
+    productId: Joi.objectId().required(),
+    dateOrder: Joi.date(),
+    status: Joi.string(),
+    isEnded: Joi.boolean(),
+    orderDeliveryDate: Joi.date(),
   };
 
   return Joi.validate(order, schema);

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Joi = require('@hapi/joi');
 const {addressSchema} = require('./address');
+Joi.objectId = require('joi-objectid')(Joi)
 
 const customerSchema = new mongoose.Schema({
   name: {
@@ -17,7 +18,7 @@ const customerSchema = new mongoose.Schema({
   },
   address: {
     type: addressSchema,
-    required: true,
+    required: true
   },
   email: {
     type: String,
@@ -26,11 +27,19 @@ const customerSchema = new mongoose.Schema({
     maxlength: 255,
     unique: true,
   },
+  isRegistered: {
+    type: Boolean,
+    default: false,
+  },
   password: {
     type: String,
     required: true,
     minlength: 5,
     maxlength: 1024,
+    required:
+    function() {
+      return this.isRegistered;
+    }
   },
   isAdmin: {
     type: Boolean,
@@ -42,24 +51,12 @@ const Customer = mongoose.model('Customer', customerSchema);
 
 function validateCustomer(customer) {
   const schema = {
-    name: Joi.string()
-      .min(5)
-      .max(50)
-      .required(),
+    name: Joi.string().min(5).max(50).required(),
+    phone: Joi.string().min(8).max(12).required(),
     addressId: Joi.objectId().required(),
-    phone: Joi.string()
-      .min(8)
-      .max(12)
-      .required(),
-    email: Joi.string()
-      .min(5)
-      .max(255)
-      .required()
-      .email(),
-    password: Joi.string()
-      .min(5)
-      .max(255)
-      .required(),
+    email: Joi.string().min(5).max(255).required().email(),
+    password: Joi.string().min(5).max(255),
+    isRegistered: Joi.boolean(),
     isAdmin: Joi.boolean(),
   };
 
