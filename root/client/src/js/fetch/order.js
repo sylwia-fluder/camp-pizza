@@ -27,7 +27,7 @@ const createOrder = order => {
 };
 
 const completeOrder = id => {
-	return fetch(`${ENDPOINTS.ORDERS}${id}`, {
+	return fetch(`${ENDPOINTS.COMPLETE_ORDER}${id}`, {
 		method: 'PUT',
 		body: {
 			isEnded: true,
