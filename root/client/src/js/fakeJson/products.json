@@ -1,0 +1,24 @@
+[
+  {
+    "name": "product_1",
+    "price": "20",
+    "ingredients": [
+      "ingredient_1",
+      "ingredient_2"
+    ],
+    "category": "category_1",
+    "isVegan": true,
+    "isSpicy": false
+  },
+  {
+    "name": "product_2",
+    "price": "30",
+    "category": "category_2",
+    "ingredients": [
+      "ingredient_2",
+      "ingredient_3"
+    ],
+    "isVegan": false,
+    "isSpicy": false
+  }
+]
