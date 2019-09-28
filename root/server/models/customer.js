@@ -18,7 +18,10 @@ const customerSchema = new mongoose.Schema({
   },
   address: {
     type: addressSchema,
+<<<<<<< HEAD
     required: true
+=======
+>>>>>>> 9ae1747d4b12c84b861d67d9847489ecde724f64
   },
   email: {
     type: String,
