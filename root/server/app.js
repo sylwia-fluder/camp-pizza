@@ -1,17 +1,18 @@
 import Joi, { objectId } from '@hapi/joi';
-objectId = require('joi-objectid')(Joi);
 import express, { json } from 'express';
 import { MongoClient } from 'mongodb';
-import products from './routes/products';
-import customers from './routes/customers';
-import orders from './routes/orders';
+const mongoose = require('mongoose');
+const products = require('./routes/products');
+const categories = require('./routes/categories');
+const customers = require('./routes/customers');
+const addresses = require('./routes/addresses');
+const orders = require('./routes/orders');
 const app = express();
 
-const uri = "mongodb+srv://user:user@codersproject-iloro.mongodb.net/test?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(() => {
-  client.close();
-});
+mongoose.connect('mongodb+srv://user:user@codersproject-iloro.mongodb.net/test?retryWrites=true&w=majority')
+    .then(() => console.log('Connect to DB'))
+    .catch(err => console.error(err));
+
 
 app.use(express.json());
 app.use('/api/products',products);
