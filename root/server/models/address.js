@@ -8,9 +8,13 @@ const addressSchema = new mongoose.Schema({
     minlength: 3,
     maxlength: 255,
   },
-  houseOrApartmentNumber: {
+  houseNumber: {
     type: Number,
     require: true,
+    min: 1,
+  },
+  apartmentNumber: {
+    type: Number,
     min: 1,
   },
   city: {
@@ -34,9 +38,11 @@ function validateAddress(address) {
       .min(3)
       .max(255)
       .required(),
-    houseOrApartmentNumber: Joi.number()
+    houseNumber: Joi.number()
       .min(1)
       .required(),
+    apartmentNumber: Joi.number()
+      .min(1),
     city: Joi.string()
       .min(3)
       .max(255)
