@@ -40,6 +40,9 @@ const Order = mongoose.model(
           get: v => (v = Math.round(v * 100) / 100),
           set: v => (v = Math.round(v * 100) / 100),
         },
+        ingredients: {
+          type: Array,
+        },
       }),
       required: true,
     },

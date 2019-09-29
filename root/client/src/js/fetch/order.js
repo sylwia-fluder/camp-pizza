@@ -1,7 +1,7 @@
 import { ENDPOINTS } from '../constants';
 
-const getAllOrders = () => {
-	return fetch(ENDPOINTS.ORDERS, {
+const getAllCompleteOrdersByCustomer = customer_id => {
+	return fetch(`${ENDPOINTS.ORDERS_BY_USER}${customer_id}`, {
 		method: 'GET'
 	});
 };
@@ -12,17 +12,25 @@ const getOrderById = id => {
 	});
 };
 
-const updateOrder = order => {
-	return fetch(`${ENDPOINTS.ORDERS}${order.id}`, {
+const updateOrder = (id, order) => {
+	return fetch(`${ENDPOINTS.ORDERS}${id}`, {
 		method: 'PUT',
-		body: order
+		headers: {
+			Accept: 'application/json',
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(order)
 	});
 };
 
 const createOrder = order => {
 	return fetch(ENDPOINTS.ORDERS, {
 		method: 'POST',
-		body: order
+		headers: {
+			Accept: 'application/json',
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(order)
 	});
 };
 
@@ -37,4 +45,10 @@ const completeOrder = id => {
 	});
 };
 
-export { getAllOrders, getOrderById, updateOrder, createOrder, completeOrder };
+export {
+	getAllCompleteOrdersByCustomer,
+	getOrderById,
+	updateOrder,
+	createOrder,
+	completeOrder
+};

@@ -1,7 +1,7 @@
 import menu from '../../images/menu.jpg';
 
 const categoryHeader = category => {
-	return `<div class="menu-element">
+	return `<div class="menu-element" id="${category.name}" data-id="${category._id}">
             <div class="menu-dish">
                 <img class="menu-img" src="${menu}"/>
                 <p>${category.name}</p>

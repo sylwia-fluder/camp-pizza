@@ -7,12 +7,14 @@ const categories = require('./routes/categories');
 const customers = require('./routes/customers');
 const addresses = require('./routes/addresses');
 const orders = require('./routes/orders');
+const cors = require('cors');
+
 const app = express();
+app.use(cors());
 
 mongoose.connect('mongodb+srv://user:user@codersproject-iloro.mongodb.net/test?retryWrites=true&w=majority')
     .then(() => console.log('Connect to DB'))
     .catch(err => console.error(err));
-
 
 app.use(express.json());
 app.use('/api/products',products);

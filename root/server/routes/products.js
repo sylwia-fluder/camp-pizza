@@ -15,9 +15,9 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  const { error } = validate(req.body); 
+  const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
-  
+
   const category = await Category.findOne({name: req.body.category});
   if (!category) return res.status(400).send('Invalid category.');
 
@@ -25,7 +25,7 @@ router.post('/', async (req, res) => {
   if (product) return res.status(400).send('The product with given name is already exist!');
 
     product = new Product({
-      name: req.body.name, 
+      name: req.body.name,
       category: {
         _id: category._id,
         name: category.name
@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
       isVegan: req.body.isVegan,
       isSpicy: req.body.isSpicy
     });
-    
+
     product = await product.save();
 
     res.send(product);
@@ -60,6 +60,14 @@ router.delete('/:id', async (req, res) => {
 
 router.get('/browserName/:name', async (req, res) => {
   const product = await Product.find({name: req.params.name});
+  if (!product) return res.status(404).send('The product with the given name was not found.');
+  res.send(product);
+});
+
+router.get('/categoryName/:name', async (req, res) => {
+  const product = await Product.find({
+    'category.name': req.params.name
+  });
   if (!product) return res.status(404).send('The product with the given name was not found.');
   res.send(product);
 });
