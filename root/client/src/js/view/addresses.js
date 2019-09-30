@@ -1,5 +1,3 @@
-import * as View from './index';
-
 const searchForm = document.getElementById('search-form');
 const inputSearchForm = searchForm.querySelector('input');
 

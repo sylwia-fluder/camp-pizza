@@ -38,7 +38,7 @@ View.searchForm.addEventListener('submit', e => {
 	});
 
 	View.changeAddress(inputValue);
-	View.changePage(View.mainPage, View.menuPage);
+	View.goToNextPage(View.menuPage);
 });
 
 let categoriesHTML = '';
@@ -63,10 +63,7 @@ Fetch.getCategories().then(categories => {
 
 document.addEventListener('click', e => {
 	if (e.target && e.target.classList.contains('p_shopping_cart')) {
-		View.mainPage.classList.add('inactive');
-		View.orderPage.classList.add('inactive');
-		View.ordersPage.classList.add('inactive');
-		View.menuPage.classList.remove('inactive');
+		View.goToNextPage(View.menuPage);
 	}
 
 	if (e.target && e.target.classList.contains('dish-basket')) {
@@ -80,14 +77,14 @@ document.addEventListener('click', e => {
 				orderId = order._id;
 				Fetch.getOrder(orderId).then(order => {
 					document.getElementById('order').innerHTML = View.orderElement(order);
-					View.changePage(View.menuPage, View.orderPage);
+					View.goToNextPage(View.orderPage);
 				});
 			});
 		} else {
 			Fetch.updateExistOrder(orderId, orderBody).then(() => {
 				Fetch.getOrder(orderId).then(order => {
 					document.getElementById('order').innerHTML = View.orderElement(order);
-					View.changePage(View.menuPage, View.orderPage);
+					View.goToNextPage(View.orderPage);
 				});
 			});
 		}
@@ -103,7 +100,7 @@ document.querySelector('.pay-btn').addEventListener('click', () => {
 				ordersHTML += View.ordersHistory(order);
 			});
 			document.getElementById('orders').innerHTML = ordersHTML;
-			View.changePage(View.orderPage, View.ordersPage);
+			View.goToNextPage(View.ordersPage);
 		});
 	});
 });

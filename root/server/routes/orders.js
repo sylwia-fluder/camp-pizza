@@ -15,13 +15,9 @@ router.get('/complete/:id_customer', async (req, res) => {
 
   res.send(await Order.find({
     $and: [
-      {
-        status: 'complete'
-      },
-      {
-        'customer._id': req.params.id_customer
-      }
-  ]
+      {status: 'complete'},
+      {'customer._id': req.params.id_customer}
+    ]
   }).sort('-dateOrder'));
 });
 
@@ -65,8 +61,7 @@ router.get('/:id', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   const product = await Product.findById(req.body.productId);
-  if (!product)
-    return res.status(404).send('The product with given ID is not found!');
+  if (!product) return res.status(404).send('The product with given ID is not found!');
 
   let order = await Order.findByIdAndUpdate(
     req.params.id,

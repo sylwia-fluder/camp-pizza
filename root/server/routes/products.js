@@ -68,7 +68,7 @@ router.get('/categoryName/:name', async (req, res) => {
   const product = await Product.find({
     'category.name': req.params.name
   });
-  if (!product) return res.status(404).send('The product with the given name was not found.');
+
   res.send(product);
 });
 
