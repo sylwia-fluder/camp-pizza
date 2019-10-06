@@ -15,8 +15,8 @@ The user has a choice of several categories with products downloaded from the da
 #### Start
 - In the repository folder start npm `npm run dev`
 #### Contributing
--If you want to work with client you need be in the path `../root/client/`  
--If you want to work with server you need be in the path `../root/server/`
+- If you want to work with client you need be in the path `../root/client/`  
+- If you want to work with server you need be in the path `../root/server/`
 ## Build with
 - HTML, CSS, JavaScript
 - Webpack
