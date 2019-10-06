@@ -1,13 +1,24 @@
 const {Order, validate} = require('../models/order');
 const {Customer} = require('../models/customer');
 const {Product} = require('../models/product');
-const mongoose = require('mongoose');
-const pick = require('lodash');
 const express = require('express');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
   res.send(await Order.find().sort('-dateOrder'));
+});
+
+router.get('/complete/:id_customer', async (req, res) => {
+  const customer = await Customer.findById(req.params.id_customer);
+  if (!customer)
+    return res.status(404).send('The customer with given ID is not found!');
+
+  res.send(await Order.find({
+    $and: [
+      {status: 'complete'},
+      {'customer._id': req.params.id_customer}
+    ]
+  }).sort('-dateOrder'));
 });
 
 router.post('/', async (req, res) => {
@@ -24,6 +35,7 @@ router.post('/', async (req, res) => {
       _id: product._id,
       name: product.name,
       price: product.price,
+      ingredients: product.ingredients,
     },
     customer: {
       _id: customer._id,
@@ -35,6 +47,7 @@ router.post('/', async (req, res) => {
     status: req.body.status,
   });
 
+  order = await order.save();
   res.send(order);
 });
 
@@ -47,12 +60,24 @@ router.get('/:id', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
+  const product = await Product.findById(req.body.productId);
+  if (!product) return res.status(404).send('The product with given ID is not found!');
+
   let order = await Order.findByIdAndUpdate(
     req.params.id,
-    pick(req.body, ['status', 'isEnded','orderDeliveryDate']),
+      {
+        product: {
+          _id: product._id,
+          name: product.name,
+          price: product.price,
+          ingredients: product.ingredients,
+        }
+      },
     { new: true }
   );
   if (!order) return res.status(404).send('The order with given ID is not found!');
+
+  order = await order.save();
   res.send(order);
 });
 
@@ -61,7 +86,7 @@ router.put('/completeOrder/:id', async (req, res) => {
   let order = await Order.findByIdAndUpdate(
     req.params.id,
     {
-      status:"complete", 
+      status: 'complete',
       isEnded: true,
       orderDeliveryDate: Date.now()
     },

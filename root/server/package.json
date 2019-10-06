@@ -28,6 +28,7 @@
     "homepage": "https://github.com/sylwia-fluder/camp-pizza#readme",
     "devDependencies": {
         "@babel/core": "^7.6.0",
+        "@babel/plugin-transform-runtime": "^7.6.2",
         "@babel/preset-env": "^7.6.0",
         "@babel/register": "^7.6.0",
         "babel-loader": "^8.0.6",
@@ -50,9 +51,10 @@
         "webpack-dev-server": "^3.8.0"
     },
     "dependencies": {
+        "@babel/runtime": "^7.6.2",
         "@hapi/joi": "^15.1.1",
         "babel-polyfill": "^6.26.0",
-        "bcrypt": "^3.0.6",
+        "cors": "^2.8.5",
         "express": "^4.17.1",
         "fawn": "^2.1.5",
         "joi-objectid": "^2.0.0",

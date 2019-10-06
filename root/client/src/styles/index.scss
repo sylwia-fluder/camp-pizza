@@ -50,7 +50,7 @@ nav {
 .header-text {
   font-family: $header-font;
   color: $white-color;
-  font-size: 0.7em;
+  font-size: .7em;
   text-align: center;
   padding: 8vh;
   text-shadow: 0 4px 4px rgba(0, 0, 0, .25);
@@ -67,7 +67,7 @@ nav {
 
 form.box-search input[type='text'] {
   padding: 10px;
-  font-size: 0.16em;
+  font-size: .16em;
   border: 1px solid $white-color;
   width: 85%;
   background: $white-color;
@@ -80,7 +80,7 @@ form.box-search button {
   padding: 10px;
   background: $main_color;
   color: $white-color;
-  font-size: 0.16em;
+  font-size: .16em;
   border: 1px solid $main_color;
   border-left: none;
   cursor: pointer;
@@ -145,7 +145,7 @@ header {
 }
 
 .about-header {
-  font-size: 0.35em;
+  font-size: .35em;
   text-align: left;
 }
 
@@ -419,29 +419,26 @@ form.adress-form input[type='password'] {
   display: unset;
 }
 
-
 @media (max-height: 550px), (max-width: 1145px) {
   .header-text {
-    font-size: 0.5em;
+    font-size: .5em;
   }
 
   .about-header {
-    font-size: 0.3em;
+    font-size: .3em;
   }
 }
-
-@media (max-height: 450px), (max-width: 945px){
+@media (max-height: 450px), (max-width: 945px) {
   .header-text {
     padding: 5vh;
-    font-size: 0.4em;
+    font-size: .4em;
   }
 
   .about-header {
-    font-size: 0.25em;
+    font-size: .25em;
   }
 }
-
-@media (max-width: 945px){
+@media (max-width: 945px) {
   header {
     height: 40vh;
   }
@@ -450,12 +447,11 @@ form.adress-form input[type='password'] {
     width: 50%;
   }
 
-  .price{
+  .price {
     margin-left: 15vw;
-  }  
+  }
 }
-
-@media (max-width: 810px){
+@media (max-width: 810px) {
   .box-search {
     width: 60%;
   }
@@ -468,8 +464,7 @@ form.adress-form input[type='password'] {
     width: 60%;
   }
 }
-
-@media (max-width: 550px){
+@media (max-width: 550px) {
   .head {
     font-size: 14px;
   }
@@ -478,16 +473,15 @@ form.adress-form input[type='password'] {
     width: 70%;
   }
 }
-
-@media (max-width: 411px){
+@media (max-width: 411px) {
   .header-text {
     padding: 3vh;
-    font-size: 0.3em;
+    font-size: .3em;
     padding-left: 3vw;
   }
 
   .about-header {
-    font-size: 0.2em;
+    font-size: .2em;
   }
 
   .box-search {
@@ -506,25 +500,23 @@ form.adress-form input[type='password'] {
     height: 30vh;
   }
 
-  .img-food1, .img-food2{
+  .img-food1, .img-food2 {
     width: 50%;
     height: 50%;
   }
 }
-
-@media (max-width: 360px){
+@media (max-width: 360px) {
   .price {
     margin-left: 10vw;
   }
 }
-
-@media (max-width: 320px){
+@media (max-width: 320px) {
   .header-text {
-    font-size: 0.24em;
+    font-size: .24em;
   }
 
   .about-header {
-    font-size: 0.14em;
+    font-size: .14em;
   }
 
   .p_logo {
@@ -543,6 +535,3 @@ form.adress-form input[type='password'] {
     margin-left: 3vw;
   }
 }
-
-
-
